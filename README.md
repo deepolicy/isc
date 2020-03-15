@@ -36,3 +36,6 @@ $.ajax("http://isc.net.cn/api-sc/",{
 
 
 ### 获取 open_id
+
+### 获取用户在 i 收藏中，本网站域名下的所有网址信息
+
