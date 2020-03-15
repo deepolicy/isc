@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>test-isc</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<!-- jquery -->
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  
+</head>
+<body>
+
+	<span id="ishoucang" style="float: left;"><a query="" href="javascript:;">添加收藏</a> i 收藏</span>
+
+</body>
+
+
+
+
+<!--i 收藏代码-->
+<script>
+// require jquery
+(function(){
+	
+	
+
+	if(1){
+		var node_this = $("#ishoucang a")
+		// 开启自动查询
+		$.ajax("http://isc.net.cn/api-sc/",{
+			//提交数据的类型 POST GET
+			type:"POST",
+			data:{
+				query: "check_shoucang",
+				href: location.href,
+				
+			},
+			crossDomain:true,
+			datatype: "json",
+			xhrFields: {  withCredentials: true  },
+			//成功返回之后调用的函数             
+			success:function(data,status,xhr){
+				console.log("data,status,xhr: ", data,status,xhr)
+				
+				var obj = JSON.parse(data)
+				if(obj.msg=="login session inactive"){
+					// 未登录
+					node_this.html("添加收藏").css("color","grey").attr("query","insert_shoucang_login")
+					
+					
+				}else if(obj.msg=="exist"){
+					// 已收藏
+					node_this.html("取消收藏").css("color","green").attr("query","delete_shoucang")
+					
+				}else if(obj.msg=="none"){
+					// 未收藏
+					node_this.html("添加收藏").css("color","black").attr("query","insert_shoucang")
+				}
+			}
+		});		
+		
+	}
+
+	if(1){
+		var node_this = $("#ishoucang a")
+		// 开启自动查询
+		$.ajax("http://isc.net.cn/api-sc/",{
+			//提交数据的类型 POST GET
+			type:"POST",
+			data:{
+				query: "get_openid",
+				
+			},
+			crossDomain:true,
+			datatype: "json",
+			xhrFields: {  withCredentials: true  },
+			//成功返回之后调用的函数             
+			success:function(data,status,xhr){
+				console.log("data,status,xhr: ", data,status,xhr)
+				
+				
+			}
+		});		
+		
+	}
+
+	$("#ishoucang a").click(function(){
+		var node_this = $(this)
+		if(node_this.attr("query")=="insert_shoucang_login"){
+		
+			location.replace( "http://www.inksci.com/login?back_url="+encodeURIComponent("/sc/insert.api.php?href="+encodeURIComponent(location.href)+"&title="+encodeURIComponent(
+				(typeof $("title").html() !== 'undefined')?$("title").html():location.href
+			)) )
+			return false
+		}
+		$.ajax("http://isc.net.cn/api-sc/",{
+			//提交数据的类型 POST GET
+			type:"POST",
+			data:{
+				query: node_this.attr("query"),
+				href: location.href,
+				title: $("title").html(),
+				
+			},
+			crossDomain:true,
+			datatype: "json",
+			xhrFields: {  withCredentials: true  },
+			//成功返回之后调用的函数             
+			success:function(data,status,xhr){
+				console.log("data,status,xhr: ", data,status,xhr)
+				
+				var obj = JSON.parse(data)
+				if(obj.msg=="login session inactive"){
+					// 未登录
+					location.replace( "http://www.inksci.com/login?back_url="+encodeURIComponent("/sc/insert.api.php?href="+encodeURIComponent(location.href)+"&title="+encodeURIComponent(
+						(typeof $("title").html() !== 'undefined')?$("title").html():location.href
+					)) )
+					return false
+				}else if(obj.msg=="insert done"){
+					// 收藏成功
+					node_this.html("取消收藏").css("color","green").attr("query","delete_shoucang")
+					
+				}else if(obj.msg=="delete done"){
+					// 取消成功
+					node_this.html("添加收藏").css("color","black").attr("query","insert_shoucang")
+					
+				}
+				
+			}
+
+		});
+	})
+
+ 
+	
+})();
+</script>
+</html>
