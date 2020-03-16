@@ -39,7 +39,24 @@ $.ajax("http://isc.net.cn/api-sc/",{
 http://isc.net.cn/sc/api-isc-help.html
 
 ### 查询 i 收藏中是否存在该网址
-
+            <table class="layui-table">
+              <colgroup>
+                <col>
+                <col>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <td>query</td>
+                  <td>"check_shoucang"</td>
+                </tr>
+                <tr>
+                  <td>href</td>
+                  <td>
+				  location.href
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 ### 添加网址到 i 收藏
 
 ### 删除
