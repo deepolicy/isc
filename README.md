@@ -55,12 +55,18 @@ href | location.href |
 ### 获取用户在 i 收藏中，本网站域名下的所有网址信息
 
 # 引入 api.js
-http://isc.net.cn/sc/api.js
+<!-- jquery -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	
+<!-- vue -->
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
 
+<!-- i 收藏 -->
+<script src="http://isc.net.cn/sc/api.js"></script>
 
-基础：
+基础样式：
 ```
-<div id="ishoucang">
+<div id="ishoucang" @click="click" auto>
 	<template v-if="state=='未查询'">
 		查询
 	</template>
@@ -75,3 +81,21 @@ http://isc.net.cn/sc/api.js
 	</template>
 </div>
 ```
+
+> 添加 auto 属性，开启自动查询。
+
+简单样式：
+```
+<div id="ishoucang" @click="click" auto style="cursor:pointer;">
+	<template v-if="state=='未登录'">
+		<span style="color:grey;">添加收藏</span>
+	</template>
+	<template v-if="state=='未收藏'">
+		<span style="color:black;">添加收藏</span>
+	</template>
+	<template v-if="state=='已收藏'">
+		<span style="color:green;">取消收藏</span>
+	</template>
+</div>
+```
+
