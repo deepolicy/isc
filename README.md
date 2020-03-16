@@ -54,3 +54,15 @@ href | location.href |
 
 ### 获取用户在 i 收藏中，本网站域名下的所有网址信息
 
+# 引入 api.js
+http://isc.net.cn/sc/api.js
+
+
+样式示例：
+```
+<span id="ishoucang" style="cursor:pointer;">
+	<span state="wdl" style="color:grey;">添加收藏</span>
+	<span state="wsc" style="color:black;">添加收藏</span>
+	<span state="ysc" style="color:green;">取消收藏</span>
+</span>
+```
