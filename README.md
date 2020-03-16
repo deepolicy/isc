@@ -1,5 +1,12 @@
 # isc
 http://isc.net.cn/ i 收藏：个人网址收藏，为第三方网站提供收藏接口
+- 统一
+
+- 快速部署
+
+- 网站导出
+
+- 用户导出
 # 在线演示
 http://t.isc.net.cn/test-isc/
 # 接口
@@ -28,6 +35,9 @@ $.ajax("http://isc.net.cn/api-sc/",{
 });	
 ```
 ## 功能
+第三方网站接口 - 帮助文档 - i 收藏
+http://isc.net.cn/sc/api-isc-help.html
+
 ### 查询 i 收藏中是否存在该网址
 
 ### 添加网址到 i 收藏
