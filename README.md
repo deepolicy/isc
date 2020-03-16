@@ -55,6 +55,7 @@ href | location.href |
 ### 获取用户在 i 收藏中，本网站域名下的所有网址信息
 
 # 引入 api.js
+```
 <!-- jquery -->
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 	
@@ -63,7 +64,7 @@ href | location.href |
 
 <!-- i 收藏 -->
 <script src="http://isc.net.cn/sc/api.js"></script>
-
+```
 基础样式：
 ```
 <div id="ishoucang" @click="click" auto>
