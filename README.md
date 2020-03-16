@@ -60,7 +60,10 @@ http://isc.net.cn/sc/api.js
 
 基础：
 ```
-<template id="ishoucang">
+<div id="ishoucang">
+	<template v-if="state=='未查询'">
+		查询
+	</template>
 	<template v-if="state=='未登录'">
 		登录并收藏
 	</template>
@@ -70,5 +73,5 @@ http://isc.net.cn/sc/api.js
 	<template v-if="state=='已收藏'">
 		取消收藏
 	</template>
-</template>
+</div>
 ```
