@@ -57,6 +57,12 @@ http://isc.net.cn/sc/api-isc-help.html
                 </tr>
               </tbody>
             </table>
+	    
+参数名 | 参数值
+-|-
+query | "check_shoucang" |
+href | location.href |
+	    
 ### 添加网址到 i 收藏
 
 ### 删除
