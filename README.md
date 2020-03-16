@@ -58,11 +58,17 @@ href | location.href |
 http://isc.net.cn/sc/api.js
 
 
-样式示例：
+基础：
 ```
-<span id="ishoucang" style="cursor:pointer;">
-	<span state="wdl" style="color:grey;">添加收藏</span>
-	<span state="wsc" style="color:black;">添加收藏</span>
-	<span state="ysc" style="color:green;">取消收藏</span>
-</span>
+<template id="ishoucang">
+	<template v-if="state=='未登录'">
+		登录并收藏
+	</template>
+	<template v-if="state=='未收藏'">
+		添加收藏
+	</template>
+	<template v-if="state=='已收藏'">
+		取消收藏
+	</template>
+</template>
 ```
